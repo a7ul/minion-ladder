@@ -8,10 +8,8 @@
  * Controller of the snakesAndLadderApp
  */
 angular.module('snakesAndLadderApp')
-  .controller('MainCtrl', function ($scope) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
+  .controller('MainCtrl', function(board) {
+      var main = this;
+      main.boardPositions = board.getBoardPostions();
+
   });

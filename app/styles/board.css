@@ -1,0 +1,8 @@
+.board-cell{
+  width:10%;
+  padding:0;
+  padding-bottom:10%;
+}
+.board-row{
+  overflow: visible;
+}
