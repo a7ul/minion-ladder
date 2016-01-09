@@ -22,7 +22,7 @@
   font-size: 14px;
 }
 .arrow-bg {
-  background: url('../images/arrow.png') no-repeat;
+  background: url('../images/arrow.gif') no-repeat;
   background-size: contain;
   background-position: left bottom;
   overflow: hidden;
