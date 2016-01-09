@@ -1,11 +1,9 @@
-<div class="container-fluid">
-  <div class="board">
-    <div class="board-row" ng-repeat="boardRow in main.boardPositions">
-      <!-- <div class="col-xs-1"></div> -->
-      <div class="col-xs-1 board-cell" ng-repeat="boardCell in boardRow">
-        {{boardCell}}
-      </div>
-      <!-- <div class="col-xs-1"></div> -->
+<div class='nav-header'></div>
+<div class="board conainter-fluid">
+  <div class="board-row" ng-repeat="boardRow in main.boardPositions">
+    <div class="col-xs-1 extra-space"></div>
+    <div class="col-xs-1 board-cell" ng-repeat="boardCell in boardRow">
+      <!-- {{boardCell}} -->
     </div>
   </div>
 </div>

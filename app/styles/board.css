@@ -1,8 +1,11 @@
-.board-cell{
-  width:10%;
-  padding:0;
-  padding-bottom:10%;
+.board-cell {
+  padding-bottom: 8%;
 }
-.board-row{
-  overflow: visible;
+.board-row {
+  overflow: hidden;
+}
+.board {
+  background: url('../images/snakes.jpg') no-repeat;
+  background-size: contain;
+  background-position: center;
 }

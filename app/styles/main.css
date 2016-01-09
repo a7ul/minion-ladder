@@ -7,4 +7,13 @@
 
 body {
   padding: 0;
+  max-width: 110vh;
+  min-width: 380px;
+  min-height: 380px;
+  margin:0 auto;
+  position: relative;
+}
+
+.board{
+  min-width: 380px;
 }
