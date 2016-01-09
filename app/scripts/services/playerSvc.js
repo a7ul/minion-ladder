@@ -7,14 +7,14 @@ angular.module('snakesAndLadderApp').service('player', function($timeout) {
     id = id + 1;
     return {
       name: playerName,
-      id: 'player-' + id,
+      id: id,
       position: 0
     };
   };
 
   var movePlayerUI = function(playerInstance, destination) {
     $timeout(function() {
-      var playerClass = '.player-pos-' + playerInstance.id;
+      var playerClass = '.player-pos-player-' + playerInstance.id;
       var destinationClass = '.board-cell-' + destination;
       $(playerClass).css($(destinationClass).offset());
     }, 1);

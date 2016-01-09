@@ -1,28 +1,42 @@
 .player-box{
   display: inline-block;
-  color: white;
-  /*border:1px solid blue;*/
   position:fixed;
   overflow:hidden;
   transition: left 2s, top 1s,transform 1s;
 }
-.player-pos-player-0{
+.player-pos-player-0,.minion-player-0{
   background:url('../images/minion1.gif') no-repeat;
   background-size: contain;
 }
-.player-pos-player-1{
+.player-pos-player-1,.minion-player-1{
   background:url('../images/minion2.gif') no-repeat;
   background-size: contain;
 }
-.player-pos-player-2{
+.player-pos-player-2,.minion-player-2{
   background:url('../images/minion3.gif') no-repeat;
   background-size: contain;
 }
-.player-pos-player-3{
+.player-pos-player-3,.minion-player-3{
   background:url('../images/minion4.gif') no-repeat;
   background-size: contain;
 }
-.player-pos-player-4{
+.player-pos-player-4,.minion-player-4{
   background:url('../images/minion5.gif') no-repeat;
   background-size: contain;
+}
+.minion-box{
+  position: relative;
+  color:black;
+  text-align: right;
+  vertical-align: center;
+}
+.minion-box-text{
+    position: absolute;
+    bottom:6px;
+    left: 0;
+    background-color:black;
+    border-radius: 3px;
+    padding:2px;
+    font-size:10px;
+    color:white;
 }

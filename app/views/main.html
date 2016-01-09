@@ -1,13 +1,44 @@
-<div class='nav-header'></div>
-<div class="board conainter-fluid">
-  <div class="board-row" ng-repeat="boardRow in main.boardPositions">
-    <div class="col-xs-1 extra-space board-cell" ng-class="{'board-cell-0':$last}"></div>
-    <div class="col-xs-1 board-cell" ng-class="main.getClass('board-cell-',boardCell)" ng-repeat="boardCell in boardRow"></div>
+<div class='choose-box' ng-if="!main.gameStarted">
+  <div class="title">
+    Minion Ladder !
+  </div>
+  <div class="player-selection col-xs-12">
+    Choose no of Players
+    <select ng-model="main.numberOfPlayers" ng-options="op for op in [2,3,4,5]">
+    </select>
+  </div>
+  <div class="btn btn-primary start-game" ng-click="main.initGame()">
+    Start Game
+  </div>
+  <div class="minion-image">
+
+  </div>
+  <div class="credits">
+    Developed by : <a href="http://atulr.com" target="_blank">Atul R</a>
+    <div>
+      Designed by : <a href="https://www.facebook.com/anandr6446" target="_blank">Anand R</a>
+    </div>
   </div>
 </div>
-<div class="footer-area">
-  <div class="dice-box" ng-click="main.runGame()" ng-class="main.diceClass">
+<div ng-if="main.gameStarted">
+  <div class="board conainter-fluid">
+    <div class="board-row" ng-repeat="boardRow in main.boardPositions">
+      <div class="col-xs-1 extra-space board-cell" ng-class="{'board-cell-0':$last}"></div>
+      <div class="col-xs-1 board-cell" ng-class="main.getClass('board-cell-',boardCell)" ng-repeat="boardCell in boardRow"></div>
+    </div>
   </div>
-</div>
-<div class="player-box" ng-class="main.getClass('player-pos-',player.id)" ng-repeat="player in main.players">
+  <div class="footer-area">
+    <div class="dice-box col-xs-1" ng-click="main.runGame()" ng-class="main.diceClass"></div>
+    <div class="col-xs-2 arrow-bg">
+      .
+    </div>
+    <div class="player-box minion-box" ng-class="main.getClass('minion-player-',minion.id)" ng-repeat="minion in main.players">
+      <span class="minion-box-text">{{minion.id}}</span>
+    </div>
+    <div class="col-xs-3 pull-right quit">
+      <a href="http://atulr.com">Quit</a>
+    </div>
+  </div>
+  <div class="player-box" ng-class="main.getClass('player-pos-player-',player.id)" ng-repeat="player in main.players">
+  </div>
 </div>
