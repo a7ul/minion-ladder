@@ -1,3 +1,4 @@
+/*globals _:true, $:true */
 'use strict';
 
 /**
@@ -8,7 +9,7 @@
  * Controller of the snakesAndLadderApp
  */
 angular.module('snakesAndLadderApp')
-  .controller('MainCtrl', function(board, dice, player, wait,$scope) {
+  .controller('MainCtrl', function(board, dice, player, wait, $scope) {
     var main = this;
     main.numberOfPlayers = 2;
     main.boardPositions = board.getBoardPostions();
@@ -30,6 +31,11 @@ angular.module('snakesAndLadderApp')
     var initGame = function() {
       main.players = generatePlayers(main.numberOfPlayers);
       main.currentPlayer = main.players[currentPlayerIndex];
+      $(window).resize(function() {
+        _.forEach(main.players,function(plr){
+          player.setPostion(plr, plr.position);
+        });
+      });
     };
 
     var nextPlayer = function(promise) {
@@ -37,7 +43,7 @@ angular.module('snakesAndLadderApp')
       if (currentPlayerIndex > main.players.length - 1) {
         currentPlayerIndex = 0;
       }
-      main.currentPlayer =  main.players[currentPlayerIndex];
+      main.currentPlayer = main.players[currentPlayerIndex];
       return promise;
     };
 
@@ -49,7 +55,7 @@ angular.module('snakesAndLadderApp')
     var movePlayer = function(val) {
       if (val >= 100) {
         val = 100;
-        console.log(main.currentPlayer.name+' Won !');
+        console.log(main.currentPlayer.name + ' Won !');
       }
       player.setPostion(main.currentPlayer, val);
     };
@@ -63,8 +69,8 @@ angular.module('snakesAndLadderApp')
 
     $scope.safeApply = function(fn) {
       var phase = this.$root.$$phase;
-      if(phase === '$apply' || phase === '$digest') {
-        if(fn && (typeof(fn) === 'function')) {
+      if (phase === '$apply' || phase === '$digest') {
+        if (fn && (typeof(fn) === 'function')) {
           fn();
         }
       } else {
@@ -72,8 +78,8 @@ angular.module('snakesAndLadderApp')
       }
     };
 
-    main.getClass = function(prefix,boardCellValue){
-        return prefix+boardCellValue;
+    main.getClass = function(prefix, boardCellValue) {
+      return prefix + boardCellValue;
     };
     main.runGame = function() {
       main.freezeUI = true;
@@ -81,7 +87,7 @@ angular.module('snakesAndLadderApp')
       wait.For(500)
         .then(checkPlayerAndMove)
         .then(nextPlayer)
-        .then(function(){
+        .then(function() {
           main.freezeUI = false;
           $scope.safeApply();
         });
