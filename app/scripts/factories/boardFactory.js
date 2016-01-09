@@ -27,7 +27,7 @@ angular.module('snakesAndLadderApp').factory('board', function() {
     [20, 19, 18, 17, 16, 15, 14, 13, 12, 11],
     [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
   ];
-  
+
   boardFactory.getBoardPostions = function() {
     return boardPositions;
   };
@@ -35,7 +35,7 @@ angular.module('snakesAndLadderApp').factory('board', function() {
   boardFactory.getCoordinates = function(pos) {
     var flattenBoardPos = _.flatten(boardPositions);
     var arrayIndex = flattenBoardPos.indexOf(pos);
-    var x = arrayIndex / 10;
+    var x = parseInt(arrayIndex / 10);
     var y = arrayIndex % 10;
     return {
       x: x,
@@ -44,7 +44,7 @@ angular.module('snakesAndLadderApp').factory('board', function() {
   };
 
   boardFactory.getMoveValue = function(pos) {
-    var coordinates = boardFactory.getBoardCoordinates(pos);
+    var coordinates = boardFactory.getCoordinates(pos);
     return boardValues[coordinates.x][coordinates.y];
   };
 
