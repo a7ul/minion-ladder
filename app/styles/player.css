@@ -1,0 +1,9 @@
+.player-box{
+  display: inline-block;
+  padding: 2px;
+  height: 20px;
+  color: white;
+  border:1px solid white;
+  background: grey;
+  position:fixed;
+}

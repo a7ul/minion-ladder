@@ -1,3 +1,4 @@
+/*globals $:true*/
 angular.module('snakesAndLadderApp').service('player', function() {
   'use strict';
   var player = this;
@@ -10,8 +11,15 @@ angular.module('snakesAndLadderApp').service('player', function() {
       position: 0
     };
   };
+
+  var movePlayerUI = function(playerInstance, destination) {
+    var playerClass = '.player-pos-' + playerInstance.id;
+    var destinationClass = '.board-cell-' + destination;
+    $(playerClass).css($(destinationClass).offset());
+  };
+
   player.setPostion = function(playerInstance, destination) {
     playerInstance.position = destination;
-    console.log(playerInstance.id,' ',playerInstance.name,' moved to ',playerInstance.position);
+    movePlayerUI(playerInstance,destination);
   };
 });

@@ -2,13 +2,15 @@
 <div class="board conainter-fluid">
   <div class="board-row" ng-repeat="boardRow in main.boardPositions">
     <div class="col-xs-1 extra-space"></div>
-    <div class="col-xs-1 board-cell" ng-repeat="boardCell in boardRow">
-      <!-- {{boardCell}} -->
-    </div>
+    <div class="col-xs-1 board-cell" ng-class="main.getClass('board-cell-',boardCell)" ng-repeat="boardCell in boardRow"></div>
   </div>
 </div>
 <div class="footer-area">
-  <div class="btn btn-primary" ng-click="main.runGame()">
+  <div class="btn btn-primary" ng-click="main.runGame()" ng-disabled="main.freezeUI">
     Roll Dice {{main.diceValue}}
   </div>
+</div>
+
+<div class="player-box" ng-class="main.getClass('player-pos-',player.id)" ng-repeat="player in main.players">
+    {{player.name}}
 </div>
