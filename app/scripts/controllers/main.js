@@ -84,7 +84,7 @@ angular.module('snakesAndLadderApp')
     main.runGame = function() {
       main.freezeUI = true;
       diceClick();
-      wait.For(500)
+      wait.For(1000)
         .then(checkPlayerAndMove)
         .then(nextPlayer)
         .then(function() {

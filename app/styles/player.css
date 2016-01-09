@@ -6,4 +6,5 @@
   border:1px solid white;
   background: grey;
   position:fixed;
+  transition: left 1s, top 2s,transform 1s;
 }
