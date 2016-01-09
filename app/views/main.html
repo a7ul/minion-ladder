@@ -19,8 +19,14 @@
       Designed by : <a href="https://www.facebook.com/anandr6446" target="_blank">Anand R</a>
     </div>
   </div>
+
+  <div class="sound-control pull-right" ng-click="main.toggleAudio()">
+    <i class="glyphicon glyphicon-volume-up glyphicon" ng-show="main.audioOn"></i>
+    <i class="glyphicon glyphicon-volume-off" ng-hide="main.audioOn"></i>
+  </div>
+
 </div>
-<div ng-if="main.gameStarted">
+<div ng-if="main.gameStarted" ng-disabled="main.gameEnded">
   <div class="board conainter-fluid">
     <div class="board-row" ng-repeat="boardRow in main.boardPositions">
       <div class="col-xs-1 extra-space board-cell" ng-class="{'board-cell-0':$last}"></div>
@@ -36,9 +42,19 @@
       <span class="minion-box-text">{{minion.id}}</span>
     </div>
     <div class="col-xs-3 pull-right quit">
-      <a href="http://atulr.com">Quit</a>
+      <a href="http://atulr.com/minion-ladder">Quit</a>
     </div>
   </div>
   <div class="player-box" ng-class="main.getClass('player-pos-player-',player.id)" ng-repeat="player in main.players">
   </div>
 </div>
+<div class="who-won" ng-if="main.gameStarted && main.gameEnded">
+    <div ng-class="main.getClass('player-pos-player-',main.whoWon.id)" class="who-won-minion">
+    </div>
+    <div class="who-won-text">
+      Player {{main.whoWon.id}} won !
+    </div>
+</div>
+<audio preload="auto" class="audio-player" autoplay>
+  <source class="audio-src" ng-src="{{main.soundUrl}}">
+</audio>

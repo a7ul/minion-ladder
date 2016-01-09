@@ -4,54 +4,80 @@
   color: #000;
   padding: 0.2em 0;
 }
-
 body {
   padding: 0;
   max-width: 110vh;
   min-width: 380px;
   min-height: 380px;
-  margin:0 auto;
+  margin: 0 auto;
   position: relative;
 }
-
-.board{
+.board {
   min-width: 380px;
 }
-
-.choose-box{
+.choose-box {
   padding: 10px;
-  margin:0 auto;
-  margin-top:20px;
+  margin: 0 auto;
+  margin-top: 20px;
   box-shadow: 0 0 3px black;
   position: relative;
 }
-.quit{
+.quit {
   padding: 20px;
   text-align: left;
 }
-.title{
+.title {
   text-align: center;
   font-size: 20px;
-  padding:20px;
+  padding: 20px;
 }
-.player-selection{
+.player-selection {
   font-weight: bold;
   text-align: center;
 }
-.start-game{
-  position:relative;
+.start-game {
+  position: relative;
   left: 50%;
   width: 100px;
-  margin-left:-50px;
-  margin-top:20px;
+  margin-left: -50px;
+  margin-top: 20px;
 }
-.credits{
-  padding:20px;
+.credits {
+  padding: 20px;
+  display: inline-block;
 }
-.minion-image{
+.minion-image {
   background: url('../images/minion2.gif') no-repeat;
   background-size: contain;
   height: 100px;
-  margin:0 auto;
+  margin: 0 auto;
   width: 100px;
+}
+.who-won {
+  position: fixed;
+  top: 50px;
+  left: 50%;
+  width: 300px;
+  height: 200px;
+  margin-left: -150px;
+  background: url('../images/minions_bananas.gif') no-repeat;
+  background-size: cover;
+  box-shadow: 0 0 3px black;
+}
+.who-won-minion {
+  height: 100px;
+  width: 100px;
+  margin: 0 auto;
+  margin-top: 50px;
+}
+.who-won-text {
+  font-weight: bold;
+  text-align: center;
+}
+.sound-control i {
+  font-size: 20px;
+}
+.sound-control {
+  padding-top: 30px;
+  padding-right: 30px;
 }
