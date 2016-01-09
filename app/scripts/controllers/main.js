@@ -21,7 +21,7 @@ angular.module('snakesAndLadderApp')
     main.gameStarted = false;
     main.gameEnded = false;
     main.whoWon = {};
-    main.soundUrl = '/audio/intro_minion.mp3';
+    main.soundUrl = 'audio/intro_minion.mp3';
     main.audioOn = true;
 
     var currentPlayerIndex = 0;
@@ -89,7 +89,7 @@ angular.module('snakesAndLadderApp')
         console.log(main.currentPlayer.name + ' Won !');
         main.whoWon = main.currentPlayer;
         main.gameEnded = true;
-        main.soundUrl = '/audio/win_minion.mp3';
+        main.soundUrl = 'audio/win_minion.mp3';
         $timeout(function() {
           $('.audio-player').get(0).load();
         }, 1);
