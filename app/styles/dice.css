@@ -1,0 +1,26 @@
+.dice-val-1 {
+  background: url('../images/dice1.jpg');
+}
+.dice-val-2 {
+  background: url('../images/dice2.jpg');
+}
+.dice-val-3 {
+  background: url('../images/dice3.jpg');
+}
+.dice-val-4 {
+  background: url('../images/dice4.jpg');
+}
+.dice-val-5 {
+  background: url('../images/dice5.jpg');
+}
+.dice-val-6 {
+  background: url('../images/dice6.jpg');
+}
+.dice-anime{
+  background: url('../images/dice_anime.gif');
+}
+.dice-box{
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}

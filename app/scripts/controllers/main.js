@@ -11,13 +11,13 @@
 angular.module('snakesAndLadderApp')
   .controller('MainCtrl', function(board, dice, player, wait, $scope) {
     var main = this;
-    main.numberOfPlayers = 2;
+    main.numberOfPlayers = 5;
     main.boardPositions = board.getBoardPostions();
     main.diceValue = dice.getDiceValue();
     main.players = [];
     main.currentPlayer = {};
     main.freezeUI = false;
-
+    main.diceClass = 'dice-anime';
     var currentPlayerIndex = 0;
 
     var generatePlayers = function(noOfPlayers) {
@@ -31,11 +31,15 @@ angular.module('snakesAndLadderApp')
     var initGame = function() {
       main.players = generatePlayers(main.numberOfPlayers);
       main.currentPlayer = main.players[currentPlayerIndex];
-      $(window).resize(function() {
-        _.forEach(main.players,function(plr){
-          player.setPostion(plr, plr.position);
-        });
+      $(window).resize(initPlayerUI);
+      initPlayerUI();
+    };
+
+    var initPlayerUI = function() {
+      _.forEach(main.players, function(plr) {
+        player.setPostion(plr, plr.position);
       });
+      player.sizePlayerUI();
     };
 
     var nextPlayer = function(promise) {
@@ -48,8 +52,12 @@ angular.module('snakesAndLadderApp')
     };
 
     var diceClick = function() {
-      main.diceValue = dice.getDiceValue();
-      movePlayer(main.diceValue + main.currentPlayer.position);
+      main.diceClass = 'dice-anime';
+      return wait.For(500).then(function() {
+        main.diceValue = dice.getDiceValue();
+        main.diceClass = dice.getClass(main.diceValue);
+        movePlayer(main.diceValue + main.currentPlayer.position);
+      });
     };
 
     var movePlayer = function(val) {
@@ -82,15 +90,18 @@ angular.module('snakesAndLadderApp')
       return prefix + boardCellValue;
     };
     main.runGame = function() {
+      if(main.freezeUI){
+        return;
+      }
       main.freezeUI = true;
-      diceClick();
-      wait.For(1000)
-        .then(checkPlayerAndMove)
-        .then(nextPlayer)
-        .then(function() {
-          main.freezeUI = false;
-          $scope.safeApply();
-        });
+      diceClick().then(function() {
+        wait.For(1000)
+          .then(checkPlayerAndMove)
+          .then(nextPlayer)
+          .then(function() {
+            main.freezeUI = false;
+          });
+      });
     };
 
     initGame();

@@ -7,4 +7,7 @@ angular.module('snakesAndLadderApp').service('dice', function() {
   dice.getDiceValue = function() {
     return getRandomInt(1, 6);
   };
+  dice.getClass = function(val){
+    return 'dice-val-'+val;
+  };
 });

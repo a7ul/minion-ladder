@@ -1,11 +1,17 @@
 .board-cell {
   padding-bottom: 8%;
+  /*border:1px solid blue;*/
 }
 .board-row {
   overflow: hidden;
 }
 .board {
   background: url('../images/snakes.jpg') no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+.board-cell-100{
+  background: url('../images/banana_dance.gif') no-repeat;
   background-size: contain;
   background-position: center;
 }
